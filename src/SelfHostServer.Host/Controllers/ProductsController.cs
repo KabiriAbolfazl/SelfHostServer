@@ -1,4 +1,5 @@
-﻿using SelfHostServer.Host.Models.Products;
+﻿using SelfHostServer.Host.Data.DbContext;
+using SelfHostServer.Host.Models.Products;
 using System.Collections.Generic;
 using System.Web.Http;
 
@@ -6,17 +7,16 @@ namespace SelfHostServer.Host.Controllers
 {
     public class ProductsController : ApiController
     {
-        Product[] products = new Product[]
+        private readonly ApplicationDbContext _context;
+        public ProductsController()
         {
-            new Product { Id = 1,Name="Galaxy S23 Ultra",Price=50},
-            new Product { Id = 2,Name="Hp pavilion",Price=80},
-            new Product { Id = 3,Name=".Net Mastery",Price=10}
-        };
+            _context = new ApplicationDbContext();
+        }
 
         [HttpGet]
         public IEnumerable<Product> GetAllProducts()
         {
-            return products;
+            return _context.Products;
         }
     }
 }

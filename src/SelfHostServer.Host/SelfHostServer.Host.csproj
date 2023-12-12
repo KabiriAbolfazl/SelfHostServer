@@ -76,8 +76,9 @@
   <ItemGroup>
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
-    <Compile Include="Models\Orders\Order.cs" />
-    <Compile Include="Models\Products\Product.cs" />
+    <Compile Include="Data\DbContext\ApplicationDbContext.cs" />
+    <Compile Include="Entities\Orders\Order.cs" />
+    <Compile Include="Entities\Products\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
